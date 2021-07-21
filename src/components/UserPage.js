@@ -99,13 +99,14 @@ const UserPage = () => {
               </Typography>
             </Grid>
           </Grid>
-          {/* USER ORGS */}
+
           <div>
             <Divider />
 
             <Typography variant="h5" color="primary" className={classes.title}>
               Organizations
             </Typography>
+
             <div className={classes.orgs}>
               {user.userOrgs.length > 0 ? (
                 user.userOrgs.map((org) => {
@@ -125,7 +126,9 @@ const UserPage = () => {
           <Typography variant="h5" color="primary" className={classes.title}>
             Repositories
           </Typography>
+
           <Divider />
+
           {user.userRepos.map((repo) => {
             const { description, language, name } = repo;
             return (
@@ -136,10 +139,12 @@ const UserPage = () => {
                       <Typography color="textPrimary" variant="h6">
                         {name}
                       </Typography>
+
                       <Typography color="textPrimary" variant="body1">
                         {description}
                       </Typography>
                     </Grid>
+
                     <Grid item xs={12} sm={2}>
                       <Typography color="textPrimary" variant="body2">
                         {language}
@@ -147,6 +152,7 @@ const UserPage = () => {
                     </Grid>
                   </Grid>
                 </div>
+
                 <Divider />
               </div>
             );
