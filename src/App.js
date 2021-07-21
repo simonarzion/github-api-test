@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { createStore } from "redux";
+import { Provider } from "react-redux";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import HomeScreen from "./screens/HomeScreen";
+import UserScreen from "./screens/UserScreen";
+import { allReducers } from "./redux/store/store";
 
-function App() {
+const store = createStore(allReducers, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+      <Router>
+        <Switch>
+          <Route exact path="/" component={HomeScreen} />
+          <Route path="/users/:login" component={UserScreen} />
+        </Switch>
+      </Router>
+    </Provider>
   );
-}
+};
 
 export default App;
