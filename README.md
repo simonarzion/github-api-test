@@ -1,1 +1,1 @@
-This was a test for an interview usign github api using react.
+Test for an interview using github api with react.
